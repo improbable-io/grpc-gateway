@@ -78,6 +78,8 @@ func applyTemplate(p param) (string, error) {
 	if err := headerTemplate.Execute(w, p); err != nil {
 		return "", err
 	}
+
+	handlerBuf := bytes.NewBuffer(nil)
 	var targetServices []*descriptor.Service
 	for _, svc := range p.Services {
 		var methodWithBindingsSeen bool
@@ -101,6 +103,8 @@ func applyTemplate(p param) (string, error) {
 		return "", errNoTargetService
 	}
 
+	if err := importsTemplate.Execute(w, p); err != nil {
+		return "", err
 	tp := trailerParams{
 		Services:          targetServices,
 		UseRequestContext: p.UseRequestContext,
@@ -121,6 +125,9 @@ Package {{.GoPkg.Name}} is a reverse proxy.
 
 It translates gRPC into RESTful JSON APIs.
 */
+`))
+
+	importsTemplate = template.Must(template.New("imports").Parse(`
 package {{.GoPkg.Name}}
 import (
 	{{range $i := .Imports}}{{if $i.Standard}}{{$i | printf "%s\n"}}{{end}}{{end}}
