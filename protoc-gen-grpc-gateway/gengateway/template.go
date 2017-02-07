@@ -135,10 +135,10 @@ Package {{.GoPkg.Name}} is a reverse proxy.
 
 It translates gRPC into RESTful JSON APIs.
 */
+package {{.GoPkg.Name}}
 `))
 
 	importsTemplate = template.Must(template.New("imports").Parse(`
-package {{.GoPkg.Name}}
 import (
 	{{range $i := .Imports}}{{if $i.Standard}}{{$i | printf "%s\n"}}{{end}}{{end}}
 
