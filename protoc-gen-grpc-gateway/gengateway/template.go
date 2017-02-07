@@ -15,6 +15,7 @@ type param struct {
 	*descriptor.File
 	Imports           []descriptor.GoPackage
 	UseRequestContext bool
+	generateEmpty bool
 }
 
 type binding struct {
@@ -95,6 +96,7 @@ func applyTemplate(p param) (string, error) {
 			targetServices = append(targetServices, svc)
 		}
 	}
+
 	if len(targetServices) == 0 {
 		return "", errNoTargetService
 	}
