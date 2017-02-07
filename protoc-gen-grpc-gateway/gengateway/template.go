@@ -15,7 +15,7 @@ type param struct {
 	*descriptor.File
 	Imports           []descriptor.GoPackage
 	UseRequestContext bool
-	generateEmpty bool
+	generateEmpty     bool
 }
 
 type binding struct {
