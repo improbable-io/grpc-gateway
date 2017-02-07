@@ -21,13 +21,14 @@ var (
 )
 
 type generator struct {
-	reg               *descriptor.Registry
-	baseImports       []descriptor.GoPackage
+	reg         *descriptor.Registry
+	baseImports []descriptor.GoPackage
+	generateEmpty bool
 	useRequestContext bool
 }
 
 // New returns a new generator which generates grpc gateway files.
-func New(reg *descriptor.Registry, useRequestContext bool) gen.Generator {
+func New(reg *descriptor.Registry, useRequestContext bool, generateEmpty bool) gen.Generator {
 	var imports []descriptor.GoPackage
 	for _, pkgpath := range []string{
 		"io",
@@ -57,7 +58,7 @@ func New(reg *descriptor.Registry, useRequestContext bool) gen.Generator {
 		}
 		imports = append(imports, pkg)
 	}
-	return &generator{reg: reg, baseImports: imports, useRequestContext: useRequestContext}
+	return &generator{reg: reg, baseImports: imports, useRequestContext: useRequestContext, generateEmpty: generateEmpty}
 }
 
 func (g *generator) Generate(targets []*descriptor.File) ([]*plugin.CodeGeneratorResponse_File, error) {
@@ -111,5 +112,5 @@ func (g *generator) generate(file *descriptor.File) (string, error) {
 			imports = append(imports, pkg)
 		}
 	}
-	return applyTemplate(param{File: file, Imports: imports, UseRequestContext: g.useRequestContext})
+	return applyTemplate(param{File: file, Imports: imports, UseRequestContext: g.useRequestContext, generateEmpty: g.generateEmpty})
 }
