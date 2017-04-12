@@ -107,6 +107,8 @@ func applyTemplate(p param) (string, error) {
 		return "", err
 	}
 	
+	handlerBuf.WriteTo(w)	
+
 	tp := trailerParams{
 		Services:          targetServices,
 		UseRequestContext: p.UseRequestContext,
