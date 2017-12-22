@@ -25,7 +25,9 @@ import (
 var (
 	generateEmpty = flag.Bool("generate_empty", false, "generate empty .pb.gw.go file for files with no target service defined")
 	importPrefix      = flag.String("import_prefix", "", "prefix to be added to go package paths for imported proto files")
-	useRequestContext = flag.Bool("request_context", false, "determine whether to use http.Request's context or not")
+	importPath        = flag.String("import_path", "", "used as the package if no input files declare go_package. If it contains slashes, everything up to the rightmost slash is ignored.")
+	useRequestContext = flag.Bool("request_context", true, "determine whether to use http.Request's context or not")
+	allowDeleteBody   = flag.Bool("allow_delete_body", false, "unless set, HTTP DELETE methods may not have a body")
 )
 
 func parseReq(r io.Reader) (*plugin.CodeGeneratorRequest, error) {
@@ -78,6 +80,8 @@ func main() {
 	g := gengateway.New(reg, *useRequestContext, *generateEmpty)
 
 	reg.SetPrefix(*importPrefix)
+	reg.SetImportPath(*importPath)
+	reg.SetAllowDeleteBody(*allowDeleteBody)
 	if err := reg.Load(req); err != nil {
 		emitError(err)
 		return
