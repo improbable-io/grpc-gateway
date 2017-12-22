@@ -40,6 +40,7 @@ func New(reg *descriptor.Registry, useRequestContext bool, generateEmpty bool) g
 		"google.golang.org/grpc",
 		"google.golang.org/grpc/codes",
 		"google.golang.org/grpc/grpclog",
+		"google.golang.org/grpc/status",
 	} {
 		pkg := descriptor.GoPackage{
 			Path: pkgpath,
@@ -79,6 +80,9 @@ func (g *generator) Generate(targets []*descriptor.File) ([]*plugin.CodeGenerato
 			return nil, err
 		}
 		name := file.GetName()
+		if file.GoPkg.Path != "" {
+			name = fmt.Sprintf("%s/%s", file.GoPkg.Path, filepath.Base(name))
+		}
 		ext := filepath.Ext(name)
 		base := strings.TrimSuffix(name, ext)
 		output := fmt.Sprintf("%s.pb.gw.go", base)
