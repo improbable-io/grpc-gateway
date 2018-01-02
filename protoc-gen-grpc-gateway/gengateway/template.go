@@ -89,7 +89,7 @@ func applyTemplate(p param) (string, error) {
 			meth.Name = &methName
 			for _, b := range meth.Bindings {
 				methodWithBindingsSeen = true
-				if err := handlerTemplate.Execute(w, binding{Binding: b}); err != nil {
+				if err := handlerTemplate.Execute(handlerBuf, binding{Binding: b}); err != nil {
 					return "", err
 				}
 			}
@@ -100,13 +100,17 @@ func applyTemplate(p param) (string, error) {
 	}
 	
 	if len(targetServices) == 0 {
+		if p.generateEmpty {
+			return w.String(), nil
+		}
+
 		return "", errNoTargetService
 	}
 
 	if err := importsTemplate.Execute(w, p); err != nil {
 		return "", err
 	}
-	
+
 	handlerBuf.WriteTo(w)	
 
 	tp := trailerParams{
