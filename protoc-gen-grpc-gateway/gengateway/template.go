@@ -112,8 +112,6 @@ func applyTemplate(p param) (string, error) {
 		return "", err
 	}
 	
-	handlerBuf.WriteTo(w)	
-
 	handlerBuf.WriteTo(w)
 
 	tp := trailerParams{
