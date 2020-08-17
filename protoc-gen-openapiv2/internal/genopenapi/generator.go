@@ -13,9 +13,9 @@ import (
 	descriptorpb "github.com/golang/protobuf/protoc-gen-go/descriptor"
 	pluginpb "github.com/golang/protobuf/protoc-gen-go/plugin"
 	anypb "github.com/golang/protobuf/ptypes/any"
-	"github.com/grpc-ecosystem/grpc-gateway/v2/internal/descriptor"
-	gen "github.com/grpc-ecosystem/grpc-gateway/v2/internal/generator"
-	openapi_options "github.com/grpc-ecosystem/grpc-gateway/v2/protoc-gen-openapiv2/options"
+	"github.com/grpc-ecosystem/grpc-gateway/internal/descriptor"
+	gen "github.com/grpc-ecosystem/grpc-gateway/internal/generator"
+	openapi_options "github.com/grpc-ecosystem/grpc-gateway/protoc-gen-openapiv2/options"
 	statuspb "google.golang.org/genproto/googleapis/rpc/status"
 	"google.golang.org/protobuf/proto"
 

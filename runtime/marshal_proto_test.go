@@ -5,8 +5,8 @@ import (
 	"testing"
 
 	timestamppb "github.com/golang/protobuf/ptypes/timestamp"
-	"github.com/grpc-ecosystem/grpc-gateway/v2/runtime"
-	"github.com/grpc-ecosystem/grpc-gateway/v2/runtime/internal/examplepb"
+	"github.com/grpc-ecosystem/grpc-gateway/runtime"
+	"github.com/grpc-ecosystem/grpc-gateway/runtime/internal/examplepb"
 	"google.golang.org/protobuf/proto"
 )
 

@@ -7,7 +7,7 @@ import (
 	"testing"
 
 	descriptorpb "github.com/golang/protobuf/protoc-gen-go/descriptor"
-	"github.com/grpc-ecosystem/grpc-gateway/v2/internal/descriptor"
+	"github.com/grpc-ecosystem/grpc-gateway/internal/descriptor"
 	"google.golang.org/protobuf/proto"
 )
 

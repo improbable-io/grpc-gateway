@@ -9,7 +9,7 @@ package examplepb
 import (
 	proto "github.com/golang/protobuf/proto"
 	empty "github.com/golang/protobuf/ptypes/empty"
-	sub "github.com/grpc-ecosystem/grpc-gateway/v2/examples/internal/proto/sub"
+	sub "github.com/grpc-ecosystem/grpc-gateway/examples/internal/proto/sub"
 	_ "google.golang.org/genproto/googleapis/api/annotations"
 	httpbody "google.golang.org/genproto/googleapis/api/httpbody"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"

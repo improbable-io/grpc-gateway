@@ -87,7 +87,7 @@ go_proto_library(
         "//:go_grpc",
         "//protoc-gen-grpc-gateway:go_gen_grpc_gateway",
     ],
-    importpath = "github.com/grpc-ecosystem/grpc-gateway/v2/examples/internal/proto/examplepb",
+    importpath = "github.com/grpc-ecosystem/grpc-gateway/examples/internal/proto/examplepb",
     proto = ":examplepb_proto",
     deps = [
         "//examples/internal/proto/pathenum:go_default_library",
@@ -104,7 +104,7 @@ go_proto_library(
 go_library(
     name = "go_default_library",
     embed = [":examplepb_go_proto"],
-    importpath = "github.com/grpc-ecosystem/grpc-gateway/v2/examples/internal/proto/examplepb",
+    importpath = "github.com/grpc-ecosystem/grpc-gateway/examples/internal/proto/examplepb",
 )
 
 protoc_gen_openapiv2(

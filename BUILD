@@ -13,7 +13,7 @@ buildifier(
 
 # gazelle:exclude third_party
 # gazelle:exclude _output
-# gazelle:prefix github.com/grpc-ecosystem/grpc-gateway/v2
+# gazelle:prefix github.com/grpc-ecosystem/grpc-gateway
 # gazelle:go_proto_compilers //:go_apiv2
 # gazelle:go_grpc_compilers //:go_apiv2, //:go_grpc
 

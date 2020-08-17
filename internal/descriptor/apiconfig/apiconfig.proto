@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package grpc.gateway.internal.descriptor.apiconfig;
 
-option go_package = "github.com/grpc-ecosystem/grpc-gateway/v2/internal/descriptor/apiconfig";
+option go_package = "github.com/grpc-ecosystem/grpc-gateway/internal/descriptor/apiconfig";
 
 import "google/api/http.proto";
 

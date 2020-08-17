@@ -1,5 +1,5 @@
 syntax = "proto3";
-option go_package = "github.com/grpc-ecosystem/grpc-gateway/v2/examples/internal/proto/examplepb;examplepb";
+option go_package = "github.com/grpc-ecosystem/grpc-gateway/examples/internal/proto/examplepb;examplepb";
 
 // Unannotated Echo Service
 // Similar to echo_service.proto but without annotations. See

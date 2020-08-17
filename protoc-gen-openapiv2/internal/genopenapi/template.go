@@ -17,9 +17,9 @@ import (
 	"github.com/golang/glog"
 	descriptorpb "github.com/golang/protobuf/protoc-gen-go/descriptor"
 	structpb "github.com/golang/protobuf/ptypes/struct"
-	"github.com/grpc-ecosystem/grpc-gateway/v2/internal/casing"
-	"github.com/grpc-ecosystem/grpc-gateway/v2/internal/descriptor"
-	openapi_options "github.com/grpc-ecosystem/grpc-gateway/v2/protoc-gen-openapiv2/options"
+	"github.com/grpc-ecosystem/grpc-gateway/internal/casing"
+	"github.com/grpc-ecosystem/grpc-gateway/internal/descriptor"
+	openapi_options "github.com/grpc-ecosystem/grpc-gateway/protoc-gen-openapiv2/options"
 	"google.golang.org/protobuf/encoding/protojson"
 	"google.golang.org/protobuf/proto"
 )

@@ -13,10 +13,10 @@ import (
 	anypb "github.com/golang/protobuf/ptypes/any"
 	structpb "github.com/golang/protobuf/ptypes/struct"
 	"github.com/google/go-cmp/cmp"
-	"github.com/grpc-ecosystem/grpc-gateway/v2/internal/descriptor"
-	"github.com/grpc-ecosystem/grpc-gateway/v2/internal/httprule"
-	openapi_options "github.com/grpc-ecosystem/grpc-gateway/v2/protoc-gen-openapiv2/options"
-	"github.com/grpc-ecosystem/grpc-gateway/v2/runtime"
+	"github.com/grpc-ecosystem/grpc-gateway/internal/descriptor"
+	"github.com/grpc-ecosystem/grpc-gateway/internal/httprule"
+	openapi_options "github.com/grpc-ecosystem/grpc-gateway/protoc-gen-openapiv2/options"
+	"github.com/grpc-ecosystem/grpc-gateway/runtime"
 	"google.golang.org/protobuf/proto"
 )
 

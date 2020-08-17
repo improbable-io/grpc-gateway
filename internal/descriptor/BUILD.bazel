@@ -10,7 +10,7 @@ go_library(
         "services.go",
         "types.go",
     ],
-    importpath = "github.com/grpc-ecosystem/grpc-gateway/v2/internal/descriptor",
+    importpath = "github.com/grpc-ecosystem/grpc-gateway/internal/descriptor",
     deps = [
         "//internal/casing:go_default_library",
         "//internal/descriptor/apiconfig:go_default_library",
